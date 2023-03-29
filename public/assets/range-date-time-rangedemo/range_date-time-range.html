@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+    <script>
+        // Ignore this in your implementation
+        window.isMbscDemo = true;
+    </script>
+
+    <title>Date & time range</title>
+
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <!-- Mobiscroll JS and CSS Includes -->
+    <link rel="stylesheet" href="css/mobiscroll.jquery.min.css">
+    <script src="js/mobiscroll.jquery.min.js"></script>
+
+    <style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    button {
+        display: inline-block;
+        margin: 5px 5px 0 0;
+        padding: 10px 30px;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        background: #5185a8;
+        color: #fff;
+        text-decoration: none;
+        font-family: arial, verdana, sans-serif;
+        font-size: 14px;
+        font-weight: 100;
+    }
+
+    input {
+        width: 100%;
+        margin: 0 0 5px 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 0;
+        font-family: arial, verdana, sans-serif;
+        font-size: 14px;
+        box-sizing: border-box;
+        -webkit-appearance: none;
+    }
+
+    .mbsc-page {
+        padding: 1em;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<div mbsc-page class="demo-date-time-range">
+  <div style="height:100%">
+      <div id="demo-calendar"></div>
+    
+    <div id="demo-date"></div>
+    
+    <label>
+        Range
+        <input id="demo-one-input" mbsc-input data-input-style="outline" data-label-style="stacked" placeholder="Please select..." />
+    </label>
+    
+    <div id="demo-start-end"></div>
+    <div class="mbsc-grid mbsc-no-padding">
+        <div class="mbsc-row">
+            <div class="mbsc-col-6">
+                <label>
+                    Start
+                    <input id="demo-start" mbsc-input data-input-style="outline" data-label-style="stacked" placeholder="Please select..." />
+                </label>
+            </div>
+            <div class="mbsc-col-6">
+                <label>
+                    End
+                    <input id="demo-end" mbsc-input data-input-style="outline" data-label-style="stacked" placeholder="Please select..." />
+                </label>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<script>
+
+    mobiscroll.setOptions({
+        locale: mobiscroll.localeTh,         // Specify language like: locale: mobiscroll.localePl or omit setting to use default
+        theme: 'ios',                        // Specify theme like: theme: 'ios' or omit setting to use default
+            themeVariant: 'light'            // More info about themeVariant: https://docs.mobiscroll.com/5-0-5/range#opt-themeVariant
+    });
+    
+    $(function () {
+        // Mobiscroll Range initialization
+        $('#demo-calendar').mobiscroll().datepicker({
+            controls: ['calendar', 'time'],  // More info about controls: https://docs.mobiscroll.com/5-0-5/range#opt-controls
+            select: 'range',                 // More info about select: https://docs.mobiscroll.com/5-0-5/range#methods-select
+            display: 'inline'                // Specify display mode like: display: 'bottom' or omit setting to use default
+        });
+    
+        // Mobiscroll Range initialization
+        $('#demo-date').mobiscroll().datepicker({
+            controls: ['date'],              // More info about controls: https://docs.mobiscroll.com/5-0-5/range#opt-controls
+            select: 'range',                 // More info about select: https://docs.mobiscroll.com/5-0-5/range#methods-select
+            display: 'inline'                // Specify display mode like: display: 'bottom' or omit setting to use default
+        });
+    
+        // Mobiscroll Range initialization
+        $('#demo-one-input').mobiscroll().datepicker({
+            controls: ['calendar'],          // More info about controls: https://docs.mobiscroll.com/5-0-5/range#opt-controls
+            select: 'range'                  // More info about select: https://docs.mobiscroll.com/5-0-5/range#methods-select
+        });
+    
+        // Mobiscroll Range initialization
+        $('#demo-start-end').mobiscroll().datepicker({
+            controls: ['calendar'],          // More info about controls: https://docs.mobiscroll.com/5-0-5/range#opt-controls
+            select: 'range',                 // More info about select: https://docs.mobiscroll.com/5-0-5/range#methods-select
+            startInput: '#demo-start',       // More info about startInput: https://docs.mobiscroll.com/5-0-5/range#opt-startInput
+            endInput: '#demo-end'            // More info about endInput: https://docs.mobiscroll.com/5-0-5/range#opt-endInput
+        });
+    });
+</script>
+
+</body>
+</html>
